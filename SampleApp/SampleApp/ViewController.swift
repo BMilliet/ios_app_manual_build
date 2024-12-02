@@ -1,4 +1,5 @@
 import UIKit
+import Foo
 
 class ViewController: UIViewController {
 
@@ -19,7 +20,9 @@ class ViewController: UIViewController {
             customLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
         ])
 
-        customLabel.text = "Hello, World!"
+        let foo = Foo()
+
+        customLabel.text = "Hello, World! \(foo.msg)"
     }
 }
 

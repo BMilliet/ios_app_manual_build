@@ -1,3 +1,5 @@
+SDK := $(shell xcrun -sdk iphonesimulator --show-sdk-path)
+TARGET = "arm64-apple-ios17.5-simulator"
 
 build:
 	swiftc *.swift \
@@ -5,4 +7,5 @@ build:
 	-static \
 	-emit-library \
 	-emit-module \
-	-emit-module-path lib/Foo
+	-sdk $(SDK) \
+	-target $(TARGET)

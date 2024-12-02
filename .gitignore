@@ -94,4 +94,7 @@ iOSInjectionProject/
 
 app/
 *.a
-lib/
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+*.abi.json

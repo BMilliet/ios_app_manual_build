@@ -1,5 +1,6 @@
 APP_BUNDLE = app/SampleApp.app
 APP_SOURCE = SampleApp/SampleApp
+LIB_PATH = SwiftLib
 
 SDK := $(shell xcrun -sdk iphonesimulator --show-sdk-path)
 TARGET = "arm64-apple-ios17.5-simulator"
@@ -21,7 +22,9 @@ build:
 	swiftc $(APP_SOURCE)/*.swift \
 	-o $(APP_BUNDLE)/SampleApp \
 	-sdk $(SDK) \
-	-target $(TARGET)
+	-target $(TARGET) \
+	-L ./SwiftLib/ \
+	-I ./SwiftLib/ -lFoo
 
 	ibtool --target-device iphone --compile $(APP_BUNDLE)/LaunchScreen.storyboardc \
 	$(APP_SOURCE)/Base.lproj/LaunchScreen.storyboard
